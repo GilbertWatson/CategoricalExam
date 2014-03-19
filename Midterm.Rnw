@@ -1,0 +1,15 @@
+\documentclass{article}
+
+\usepackage{enumerate}
+\usepackage{amsmath}
+
+\title{Categorical Exam}
+\author{Gilbert Watson}
+\date{\today}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+\end{document}
