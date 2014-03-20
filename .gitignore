@@ -1,3 +1,9 @@
 .Rproj.user
 .Rhistory
 .RData
+<<<<<<< HEAD
+=======
+*.tex
+*.log
+*.gz
+>>>>>>> 10b577e38ad8ee250152386a737fc5a62927e5d9
