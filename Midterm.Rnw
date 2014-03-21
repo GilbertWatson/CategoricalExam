@@ -12,4 +12,79 @@
 
 \maketitle
 
+\section*{1}
+
+First let's construct the table:
+
+<<table1>>=
+drivers <- data.frame(buckled = c(115, 53), 
+                      unbuckled = c(62, 51), 
+                      row.names=c("car","truck"))
+drivers
+@
+
+\begin{enumerate}[a)]
+
+\item{} The sampling model is Poisson becuase the cell counts in the table are independent and the total count was only determined after the hour of observing. This is a cross sectional study since both attributes, buckled and car vs. truck, were recorded simultaneously.
+
+\item{} 
+\begin{enumerate}[i.]
+
+\item{} First let's calculate the $\hat{\pi_1} - \hat{\pi_2}$ for the proportion of drivers buckled in:
+
+<<piis>>=
+phat <- drivers/rowSums(drivers)
+diffp <- phat["car","buckled"] - phat["truck","buckled"]
+diffp
+@
+
+Now let's construct a 95\% confidence interval for $\hat{\pi}$ that correspond to the proportion of drivers buckled in:
+
+<<piis95>>=
+alpha <- 0.05
+sigma_diffp <- sqrt((phat["car","buckled"]*(1-phat["car","buckled"]))/
+                      rowSums(drivers)["car"] + 
+                      (phat["truck","buckled"]*(1-phat["truck","buckled"]))/
+                      rowSums(drivers)["truck"])
+z <- qnorm(1-alpha/2)*sigma_diffp
+names(z) <- NULL
+z
+@
+
+So a 95\% confidence interval for difference in proportions of drivers buckled in for cars and trucks is: $\Sexpr{round(diffp,4)} \pm \Sexpr{round(z,4)} $.
+
+\end{enumerate}
+
+\end{enumerate}
+
+\section*{2}
+
+\begin{enumerate}[a)]
+
+\item{}
+
+\end{enumerate}
+
+\section*{3}
+
+\begin{enumerate}[a)]
+
+\item{} Let's construct a contingency table and show it.
+
+<<contable>>=
+study <- data.frame(died = c(3,3), 
+                    lived = c(87,7), 
+                    row.names = c("normotensive","hypotensive")
+)
+study
+@
+
+\item{} 
+
+\end{enumerate}
+
+\section*{4}
+
+
+
 \end{document}
