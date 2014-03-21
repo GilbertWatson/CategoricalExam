@@ -85,6 +85,49 @@ study
 
 \section*{4}
 
+\begin{enumerate}[a)]
 
+\item{} First let's construct the contingency tables:
+
+<<morecontin>>=
+migraine <- array(data=c(6,2,4,8,4,1,3,5,5,3,3,6),
+                  dim=c(2,2,3),
+                  dimnames=list(Treatment=c("Drug","Placebo"),
+                                Response=c("Success","Failure"),
+                                Center=c("1","2","3")))
+migraine
+@
+
+Then let's get just the marginal table associating Treatment and Response:
+
+<<treatrespone>>=
+TR <- margin.table(migraine,c(1,2))
+TR
+
+TR_pihat <- TR/rowSums(TR)
+TR_pihat
+@
+
+
+
+\end{enumerate}
+
+\section*{5}
+
+\begin{enumerate}[a)]
+
+\item{} First let's construct the contingency tables:
+
+<<mothers>>=
+mothers <- array(data=c(3,9,2,7,5,13,6,11),
+                 dim=c(2,2,2),
+                 dimnames=list(Case=c("smoker","non-smoker"),
+                               Control=c("smoker","non-smoker"),
+                               Age=c("< 21",">= 21")))
+
+@
+
+
+\end{enumerate}
 
 \end{document}
